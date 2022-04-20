@@ -14,7 +14,7 @@ public class Arrivee {
 
 	private static int nbMuscu = 4;
 	private static int nbFit = 5;
-	private static final String nomComplexe = "C Fun";
+	private static final String nomComplexe = "CFUN";
 
 	static Complexe leComplexe = new Complexe(nbMuscu, nbFit, nomComplexe);
 
@@ -135,7 +135,6 @@ public class Arrivee {
 	}
 
 	// Gestion des arrivants
-
 	public static Arrivee GetArrivantByTicket(String NumeroTicket) {
 		for (int i = 0; i < ListArrivant.size(); i++) {
 			if (ListArrivant.get(i).GetBilletInfo()[1].equals(NumeroTicket)) {
@@ -145,21 +144,17 @@ public class Arrivee {
 		return null;
 	}
 
-	public static List<Arrivee> GetAllArrivant() {
-		for (int i = 0; i < ListArrivant.size(); i++) {
-			System.out.println(ListArrivant.get(i).GetBilletInfo()[1]);
-		}
-		return ListArrivant;
-	}
-
+	/* ADD d'un arrivant grace à une entrée */
 	public static void AjoutArrivant(Arrivee Arrivant) {
 		ListArrivant.add(Arrivant);
 	}
+	
+	/* REMOVE d'une ligne (qu'on selectionne) grace à une sortie */
 	public static void RemoveArrivant(Arrivee Arrivant) {
 		ListArrivant.remove(Arrivant);		
 	}
 	
-
+	/* POUR TEST UNITAIRE */
 	public double getMontant() {
 		double cout = 0;
 
@@ -174,32 +169,31 @@ public class Arrivee {
 
 			} else if (duree <= 15) {
 				cout = 0;
+			} else if (duree < 60) {
+					cout = 1;
 			} else {
-				if (duree < 60) {
-					cout = 1;
-				} else {
-					// cout fixe d'une heure
-					cout = 1;
-					duree -= 60;
-					// + tous les 1/4 h commencés
-					long nbquarts, reste;
-					nbquarts = duree / 15;
-					reste = duree % 15;
-					if (reste != 0)
-						nbquarts++;
-					cout += nbquarts * 0.5;
-				}
-
+				// cout fixe d'une heure
+				cout = 1;
+				duree -= 60;
+				// + tous les 1/4 h commencés
+				long nbquarts, reste;
+				nbquarts = duree / 15;
+				reste = duree % 15;
+				if (reste != 0)
+					nbquarts++;
+				cout += nbquarts * 0.5;
 			}
-		}
 
+		}
 		return cout;
 	}
 
+	// RECUPERATION DES INFOS de Complexe
 	public Complexe getComplexe() {
 		return this.complexe;
 	}
-
+	
+	/* ON initie le NUMERO d'une entrée*/
 	public void setNumeroArrivee(int numero) {
 		numeroArrivee = numero;
 	}

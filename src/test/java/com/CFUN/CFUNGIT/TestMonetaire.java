@@ -11,7 +11,7 @@ public class TestMonetaire {
 
 	@Test
 	public void test() {
-		Complexe newComplexe = new Complexe(2, 4, "JimmyComplex");
+		Complexe newComplexe = new Complexe(2, 4, "Complex");
 		Arrivee newArrivant = new Arrivee(newComplexe, 'F');
 
 		newArrivant.addTime(12);
