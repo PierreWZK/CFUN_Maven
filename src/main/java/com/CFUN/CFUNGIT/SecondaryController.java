@@ -157,7 +157,7 @@ public class SecondaryController {
 			String[] splittedD = heureNow.split(":");
 			int hD = Integer.parseInt(splittedD[0])*60;
 			int mD = Integer.parseInt(splittedD[1]);
-			int difference = (hA+mA) - (hD+mD);
+			int difference =  (hD+mD) - (hA+mA);
 			
 			if(difference <= 15) {
 				montant = 0;
