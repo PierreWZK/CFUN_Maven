@@ -125,6 +125,8 @@ public class PrimaryController extends Database{
 		operation = 'E';
 		operationButton.setStyle("-fx-background-color: #FF6F16");
 		sortieButton.setStyle("-fx-background-color: grey");
+		muscuButton.setStyle("-fx-background-color: grey");
+		fitButton.setStyle("-fx-background-color: grey");
 		muscuButton.setDisable(false);
 		fitButton.setDisable(false);
 		valideButton.setDisable(true);

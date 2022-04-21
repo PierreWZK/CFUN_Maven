@@ -183,8 +183,6 @@ public class SecondaryController {
 //				System.out.println("Erreur sur le ticket ! ");
 				ErreurTicket.setVisible(true);
 			}
-			
-			
 		}
 	}
 }
